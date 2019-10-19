@@ -7,14 +7,13 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using exercise.Models.Movies;
 using exercise.Data;
 
-namespace exe
+namespace exercise
 {
     public class Startup
     {
-        // This method gets called by the runtime. Use this method to add services to the container.
-        // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<MoviesContext>(options =>
@@ -36,7 +35,7 @@ namespace exe
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Hello}/{action=Index}/{id?}");
+                    template: "{controller=Movies}/{action=Index}/{id?}");
             });
 
             app.UseStaticFiles();
